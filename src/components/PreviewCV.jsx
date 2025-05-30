@@ -47,7 +47,7 @@ export default function PreviewCV({ formData }) {
 
   return (
     <section className="flex flex-col items-center justify-center w-full h-full p-4">
-      <h2>CV Preview</h2>
+      <h2>Resume Preview</h2>
       <div className="flex gap-4 my-4">
         <button
           onClick={downloadPNG}

@@ -43,7 +43,7 @@ export default function Sidebar({ formData, setFormData }) {
         </span>
         <div className="flex gap-2 px-2">
           <span className="text-sm flex flex-col">
-            <label>CV Background Color</label>
+            <label>Resume Background Color</label>
             <input
               type="color"
               name="cvBgColor"
@@ -55,7 +55,7 @@ export default function Sidebar({ formData, setFormData }) {
             />
           </span>
           <span className="text-sm flex flex-col">
-            <label>CV Text Color</label>
+            <label>Resume Text Color</label>
             <input
               type="color"
               name="cvTextColor"
