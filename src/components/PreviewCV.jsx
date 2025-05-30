@@ -1,10 +1,72 @@
+import { toPng } from "html-to-image";
+import jsPDF from "jspdf";
 import { Github, Globe, Mail, Phone } from "lucide-react";
+import { useRef } from "react";
 
 export default function PreviewCV({ formData }) {
+  const cvRef = useRef();
+
+  const downloadPNG = () => {
+    if (!cvRef.current) return;
+    toPng(cvRef.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = "cv.png";
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.error("Failed to generate PNG", err);
+      });
+  };
+
+  async function downloadPDF() {
+    const element = cvRef.current;
+
+    if (!element) {
+      console.error("CV element not found");
+      return;
+    }
+
+    try {
+      const dataUrl = await toPng(element, { cacheBust: true });
+
+      const pdf = new jsPDF("p", "mm", "a4");
+      const imgProps = pdf.getImageProperties(dataUrl);
+
+      // A4 size in mm
+      const pdfWidth = 210;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+      pdf.addImage(dataUrl, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save("cv.pdf");
+    } catch (error) {
+      console.error("Failed to generate PDF", error);
+    }
+  }
+
   return (
     <section className="flex flex-col items-center justify-center w-full h-full p-4">
       <h2>CV Preview</h2>
-      <div className="w-[800px] min-h-screen border border-gray-500 flex rounded-lg">
+      <div className="flex gap-4 my-4">
+        <button
+          onClick={downloadPNG}
+          className="bg-black text-white px-3 py-1 rounded-lg"
+        >
+          Download as PNG
+        </button>
+        <button
+          onClick={downloadPDF}
+          className="bg-black text-white px-3 py-1 rounded-lg"
+        >
+          Download as PDF
+        </button>
+      </div>
+      <div
+        className="w-[800px] min-h-screen border border-gray-500 flex rounded-lg"
+        ref={cvRef}
+        id="cv"
+      >
         <aside
           className="flex flex-col w-1/2 h-full gap-6 p-4 rounded-l-lg"
           style={{
@@ -110,7 +172,7 @@ export default function PreviewCV({ formData }) {
               {formData.jobTitle ? formData.jobTitle : "Your Job Title"}
             </h2>
           </header>
-          <main className="p-4 space-y-6">
+          <main className="p-4 space-y-6 bg-white h-screen">
             <div className="space-y-2">
               <h3 className="text-2xl font-semibold">Summary</h3>
               <div className="border-b border-black"></div>
@@ -131,7 +193,7 @@ export default function PreviewCV({ formData }) {
                           <span>{exp.title}</span>
                           <span>{exp.year}</span>
                         </h4>
-                        <p className="text-gray-600">{exp.description}</p>
+                        <span className="text-gray-600">{exp.description}</span>
                       </div>
                     ))
                   : "Briefly describe your previous work or internship experience, including your role, responsibilities, and key achievements"}
