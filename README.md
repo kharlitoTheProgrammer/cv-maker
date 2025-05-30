@@ -1,12 +1,34 @@
-# React + Vite
+# 💼 CV Maker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and customizable CV Maker built with React. Users can input their personal information, add experiences, certifications, and education, and **customize the background and text color** of their CV.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Input personal information (name, contact, summary, etc.)
+- Add multiple:
+  - Work experiences
+  - Certifications
+  - Educational history
+- Upload a profile image
+- **Live CV preview**
+- **Customize CV background and text colors** using color pickers
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Tailwind CSS
+- Lucide Icons
+
+## 📸 Screenshots
+
+> _Coming soon –_
+> - Add screenshots of the UI
+> - **Print and download CV as PDF or PNG**
+
+## 🚀 Getting Started
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/yourusername/cv-maker.git
+cd cv-maker
