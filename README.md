@@ -1,8 +1,10 @@
-# 💼 CV Maker
+# 💼 Resume Maker
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-blue?style=for-the-badge)](https://kharlitoTheProgrammer.github.io/cv-maker)
 
-A simple and customizable CV Maker built with React and Tailwind CSS. Users can input personal details, add experiences, certifications, and education, and **customize the background and text color** of their CV. The app also allows users to **download their CV as a PNG or PDF**.
+A simple and customizable Resume Maker built with React. Users can input their personal information, add experiences, certifications, and education, and **customize the background and text color** of their resume.
+
+> **Note:** This project is currently optimized for **desktop and laptop screens only**. It is **not yet responsive** for mobile devices.
 
 ## ✨ Features
 
@@ -12,24 +14,15 @@ A simple and customizable CV Maker built with React and Tailwind CSS. Users can 
   - Certifications
   - Educational history
 - Upload a profile image
-- **Live CV preview**
-- **Customize CV background and text colors** using color pickers
-- **Download CV as PDF or PNG**
+- **Live Resume preview**
+- **Customize resume background and text colors** using color pickers
+- Download as PNG or PDF (for easy sharing and printing)
 
 ## 🛠 Tech Stack
 
 - React
 - Tailwind CSS
-- Vite
 - Lucide Icons
-- `html-to-image` for PNG export
-- `html2pdf.js` for PDF export
-
-## 📸 Screenshots
-
-> _Coming soon –_
-> - Add screenshots of the UI
-> - Example of downloaded PDF and PNG
 
 ## 🚀 Getting Started
 
@@ -38,3 +31,5 @@ A simple and customizable CV Maker built with React and Tailwind CSS. Users can 
 ```bash
 git clone https://github.com/kharlitoTheProgrammer/cv-maker.git
 cd cv-maker
+npm install
+npm run dev
